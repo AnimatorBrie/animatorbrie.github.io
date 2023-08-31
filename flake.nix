@@ -26,7 +26,7 @@
       devShells =
         std.mapAttrs (system: pkgs: {
           default = pkgs.mkShell {
-            packages = with pkgs; [hugo];
+            packages = with pkgs; [jekyll ruby];
           };
         })
         nixpkgsFor;
