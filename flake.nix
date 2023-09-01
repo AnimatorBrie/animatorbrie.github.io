@@ -27,7 +27,7 @@
         std.mapAttrs (system: pkgs: {
           default = pkgs.mkShell {
             packages = with pkgs; [
-              ruby
+              ruby_3_2
             ];
           };
         })
