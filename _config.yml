@@ -53,3 +53,8 @@ exclude:
   - vendor
   - Gemfile
   - Gemfile.lock
+
+collections:
+  main:
+    output: true
+    permalink: /:name

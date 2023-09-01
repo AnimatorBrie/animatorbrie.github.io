@@ -4,6 +4,9 @@
 $main-bg: #501160;
 $nav-bg: #401150;
 $nav-text: #ffffff;
+$nav-current-page: #aaddbb;
+
+$header-img-height: 15lvh; // hack to get the banner image the right size
 
 // mostly-universal rules; applied to (nearly) everything unless overriden by a more specific rul
 body {
@@ -22,15 +25,33 @@ a {
 	color: #ffffff;
 }
 
+img {
+	object-fit: contain;
+}
+
 // the header that shows up on every page
 header {
 	display: grid;
 	grid-template-columns: 2fr 1fr;
-	grid-template-rows: 2fr 1fr;
+	grid-template-rows: $header-img-height 4lvh;
+	// background image
+	img.bg_img {
+		z-index: -1;
+		position: fixed;
+		object-fit: cover;
+		width: 100%;
+		left: 0px;
+		height: $header-img-height;
+	}
 	// this is the part of the header with your name, email, etc.
 	address {
-		font-style: normal;
 		grid-row: 1;
+		margin: 1em;
+		align-self: end;
+
+		font-style: normal;
+		text-shadow: 0.2em 0.2em 6px black;
+
 		display: flex;
 		flex-direction: column;
 		a {
@@ -55,6 +76,11 @@ header {
 		a {
 			color: $nav-text;
 			text-align: center;
+			text-decoration: none;
+			font-weight: bold;
+		}
+		a[active="true"] {
+			color: $nav-current-page;
 		}
 	}
 }
@@ -62,6 +88,8 @@ header {
 main {
 	display: flex;
 	justify-content: space-around;
+	flex-direction: column;
+
 	background-color: $main-bg;
 
 	margin: auto;
@@ -72,6 +100,12 @@ main {
 		width: 100%;
 		// `40lvh` is "40% of the height of the viewport"
 		height: 40lvh;
+	}
+
+	embed.resume {
+		align-self: center;
+		width: 100%;
+		height: 75lvh;
 	}
 }
 
@@ -88,3 +122,27 @@ footer {
 		}
 	}
 }
+
+div.image-gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+	grid-template-rows: auto;
+	grid-auto-rows: minmax(12em, auto);
+
+	column-gap: 1em;
+	row-gap: 1em;
+
+	// a {
+	// 	display: block;
+	// 	text-align: center;
+	// 	max-width: 12em;
+	// 	max-height: 12em;
+	// }
+	img {
+		object-fit: contain;
+		margin: auto;
+		width: 100%;
+		height: 100%;
+	}
+}
+
