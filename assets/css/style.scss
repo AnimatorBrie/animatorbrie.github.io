@@ -8,6 +8,25 @@ $nav-current-page: #aaddbb;
 
 $header-img-height: 15lvh; // hack to get the banner image the right size
 
+@font-face {
+	font-family: "Helvetica Neue";
+	src:
+		local("Helvetica Neue"),
+		url("/assets/font/HelveticaNeue_Regular.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Helvetica Neue Condensed";
+	src:
+		local("Helvetica Neue Condensed"),
+		url("/assets/font/HelveticaNeue_CondensedBold.ttf") format("truetype");
+}
+
+
+* {
+	font-family: "Helvetica Neue Condensed", "Helvetica Neue", Helvetica, sans-serif;
+}
+
 // mostly-universal rules; applied to (nearly) everything unless overriden by a more specific rul
 body {
 	color: #ffffff;
