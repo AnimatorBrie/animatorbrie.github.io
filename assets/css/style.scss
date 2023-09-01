@@ -1,0 +1,40 @@
+---
+---
+
+header {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: 2fr 1fr;
+	address {
+		font-style: normal;
+		grid-row: 1;
+	}
+	nav {
+		grid-row: 2 / -1;
+		grid-column: 1 / -1;
+		display: flex;
+		align-items: center;
+		align-content: space-evenly;
+		justify-content: space-evenly;
+		a {
+			text-align: center;
+		}
+	}
+}
+
+main {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+footer {
+	justify-content: space-evenly;
+	address {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		justify-content: space-evenly;
+		a {
+			text-align: center;
+		}
+	}
+}
