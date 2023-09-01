@@ -9,29 +9,45 @@ $nav-text: #ffffff;
 body {
 	color: #ffffff;
 	background-color: #000000;
+
+	width: 75%;
+	max-width: 78em; // limit the size on big screens
+
+	margin: auto;
 }
 
 // rules applied to links
 a {
+	// make it white instead of blue
 	color: #ffffff;
 }
 
 // the header that shows up on every page
 header {
 	display: grid;
-	grid-template-columns: 12.5% 2fr 1fr 12.5%;
+	grid-template-columns: 2fr 1fr;
 	grid-template-rows: 2fr 1fr;
 	// this is the part of the header with your name, email, etc.
 	address {
 		font-style: normal;
 		grid-row: 1;
-		grid-column: 2;
+		display: flex;
+		flex-direction: column;
+		a {
+			font-weight: bold;
+			// no underline
+			text-decoration: none;
+		}
+		h1, h2 {
+			// remove space between big text lines
+			margin: 0px;
+		}
 	}
 	// this is the navigation button section (`Reel Portfolio Sketchbook About Resume`)
 	nav {
 		background-color: $nav-bg;
 		grid-row: 2 / -1;
-		grid-column: 2 / -2;
+		grid-column: 1 / -1;
 		display: flex;
 		align-items: center;
 		align-content: space-evenly;
@@ -45,16 +61,21 @@ header {
 
 main {
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-around;
 	background-color: $main-bg;
 
-	max-width: 75%;
-
 	margin: auto;
+
+	padding: 4lvh 4lvw 4lvh 4lvw;
+
+	iframe {
+		width: 100%;
+		// `40lvh` is "40% of the height of the viewport"
+		height: 40lvh;
+	}
 }
 
 footer {
-	max-width: 75%;
 	margin: 1em auto auto auto;
 	justify-content: space-evenly;
 	address {
