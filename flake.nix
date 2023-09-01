@@ -1,5 +1,5 @@
 {
-  description = "";
+  description = "Brie's website";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     alejandra = {
@@ -26,7 +26,9 @@
       devShells =
         std.mapAttrs (system: pkgs: {
           default = pkgs.mkShell {
-            packages = with pkgs; [jekyll ruby];
+            packages = with pkgs; [
+              ruby_2_7
+            ];
           };
         })
         nixpkgsFor;
