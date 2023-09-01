@@ -1,22 +1,43 @@
 ---
 ---
 
+$main-bg: #501160;
+$nav-bg: #401150;
+$nav-text: #ffffff;
+
+// mostly-universal rules; applied to (nearly) everything unless overriden by a more specific rul
+body {
+	color: #ffffff;
+	background-color: #000000;
+}
+
+// rules applied to links
+a {
+	color: #ffffff;
+}
+
+// the header that shows up on every page
 header {
 	display: grid;
-	grid-template-columns: 2fr 1fr;
+	grid-template-columns: 12.5% 2fr 1fr 12.5%;
 	grid-template-rows: 2fr 1fr;
+	// this is the part of the header with your name, email, etc.
 	address {
 		font-style: normal;
 		grid-row: 1;
+		grid-column: 2;
 	}
+	// this is the navigation button section (`Reel Portfolio Sketchbook About Resume`)
 	nav {
+		background-color: $nav-bg;
 		grid-row: 2 / -1;
-		grid-column: 1 / -1;
+		grid-column: 2 / -2;
 		display: flex;
 		align-items: center;
 		align-content: space-evenly;
 		justify-content: space-evenly;
 		a {
+			color: $nav-text;
 			text-align: center;
 		}
 	}
@@ -25,14 +46,22 @@ header {
 main {
 	display: flex;
 	justify-content: space-evenly;
+	background-color: $main-bg;
+
+	max-width: 75%;
+
+	margin: auto;
 }
 
 footer {
+	max-width: 75%;
+	margin: 1em auto auto auto;
 	justify-content: space-evenly;
 	address {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 		justify-content: space-evenly;
+		font-style: normal;
 		a {
 			text-align: center;
 		}
