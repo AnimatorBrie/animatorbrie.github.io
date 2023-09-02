@@ -10,7 +10,8 @@
         <a href="https://instagram.com/{{ site.instagram_username }}"><i class="fa fa-instagram" aria-hidden="true"></i>{{ site.instagram_username }}</a>
     </address>
     <nav>
-        {% for nav_page in site.main %}
+        {% assign nav_pages = site.main | sort: "nav_order", "last" %}
+        {% for nav_page in nav_pages %}
             {% assign nav_title = nav_page.title | default: nav_page.path %}
             <a href="{{ nav_page.url }}" {% if nav_page.title == page.title %} active="true" {% endif %}>{{ nav_title }}</a>
         {% endfor %}
