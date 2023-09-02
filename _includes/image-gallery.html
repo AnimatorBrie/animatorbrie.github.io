@@ -1,11 +1,18 @@
+<script defer="true" async="true" src="/assets/js/image-gallery.js"></script>
 <div class="image-gallery">
 {% for file in site.static_files %}
     {% if file.path contains include.folder %}
 
         {% assign filenameparts = file.path | split: "/" %}
         {% assign filename = filenameparts | last | replace: file.extname,"" %}
-
-        <a href="{{ file.path }}" title="{{ filename }}"><img src="{{ file.path }}" alt="{{ filename }}" /></a>
+        <img src="{{ file.path }}" alt="{{ filename }}" />
+        <!-- <a href="{{ file.path }}" title="{{ filename }}"></a> -->
     {% endif %}
 {% endfor %}
+
+    <div hidden="true" class="gallery-zoom">
+        <!-- <button class="prev" type="button"></button> -->
+        <img></img>
+        <!-- <button class="next" type="button"></button> -->
+    </div>
 </div>
